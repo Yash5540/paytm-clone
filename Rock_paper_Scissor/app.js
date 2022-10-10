@@ -16,8 +16,8 @@ const DEFAULT_USER_CHOICE = ROCK;
 let gameIsRunning = false;
 
 const getPlayerChoice = function(){
-  const selection= prompt(`${ROCK}, ${PAPER} OR ${SCISSOR}?`).toUpperCase();
-  if(selection !== ROCK && selection !== PAPER && selection !== SCISSOR){
+  const selection= prompt(`${ROCK}, ${PAPER} OR ${SCISSOR}?`).toLowerCase();
+  if(selection !== rock && selection !== paper && selection !== scissor){
 
     alert(`Invalid choice! We chose ${DEFAULT_USER_CHOICE} for you`);
     return DEFAULT_USER_CHOICE;
