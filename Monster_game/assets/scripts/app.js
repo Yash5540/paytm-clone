@@ -16,19 +16,20 @@ const STRONG_ATTACK_MODE = "strong_attack";
 
 function getValidInput(){
   let enteredValue = parseInt( prompt("Enter the Maximum HP for you and the monster", "100"));
-if (isNaN(enteredValue) || enteredValue <= 0) {
-  // chosenMaxLife = 100;  now we don't do this, but we throw an error
-  throw {message : 'Invalid user input! Not a number!'}  // this is an object,often we throw an object
+  if (isNaN(enteredValue) || enteredValue <= 0) {
+    // chosenMaxLife = 100;  now we don't do this, but we throw an error
+    throw {message : 'Invalid user input! Not a number!'}  // this is an object,often we throw an object
 
-  // VVIMP!!---- after throw, no button function works
+    // VVIMP!!---- after throw, no button function works
 
+  }
+  return enteredValue;
 }
-return enteredValue;
-}
+
 let chosenMaxLife;
-try{
+try {
    chosenMaxLife = getValidInput();
-}catch(error){
+} catch(error){
   console.log(error); // now, the error message in 'throws' is just displayed, but the site function doesn't stop
   chosenMaxLife = 100;  // HANDLING ERROR
   alert('You entered something wrong, default value of 100 was used');
@@ -116,6 +117,7 @@ function endRound() {
     // }
   }
 }
+
 let maxDamage;
 function attackMonster(mode) {
   let attackType;
@@ -184,12 +186,14 @@ function healPlayerHandler() {
     alert("can't heal more than twice");
   }
 }
+
 function reset() {
   currentMonsterHealth = chosenMaxLife;
   currentPlayerHEalth = chosenMaxLife;
   // adjustHealthBars(chosenMaxLife);
   resetGame(chosenMaxLife);
 }
+
 let battleLog = [];
 let logEntry;
 function writeToLog(ev, val, monsterHealth , playerHealth,tar ){
@@ -203,9 +207,9 @@ function writeToLog(ev, val, monsterHealth , playerHealth,tar ){
   };
   battleLog.push(logEntry);
   // console.log(battleLog);
-  
 
 }
+
 function printwriteToLog()
 {
   for(let i=0; i<3; i++){
@@ -237,7 +241,6 @@ function printwriteToLog()
      }
      i++;
   }
-
 
   // let j=4;
   // console.log(j + 'meow');
